@@ -1,7 +1,10 @@
-import jobs from '/Users/waskar.paulino/Desktop/Personal/ascendProgram/week2/hitListApp/hitList/jobs.json'
+import jobs from '../../jobs.json';
+import JobListing from './JobListing.jsx'
 
 const JobListings = () => {
     console.log(jobs.jobs[2], 'here they are')
+    const recentJobs = jobs.jobs.slice(0, 3)
+    console.log(recentJobs, 'recent jobs')
 
     return (
         <section className="bg-blue-50 px-4 py-10">
@@ -10,8 +13,8 @@ const JobListings = () => {
                     Browse Jobs
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {jobs.jobs.map((job) => (
-                        
+                    {recentJobs.map((job) => (
+                        <JobListing key={job.id} job={job} />
                     ))}
                 </div>
             </div>
